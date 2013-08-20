@@ -38,6 +38,8 @@ def run_rt_data():
         simple_nltk_feature_set_converter('-'),
     )
 
+    print('Loading training data...')
+    
     positive_feature_sets = [
         apply_functions(e, positive_filter_chain)
         for e in positive_corpus
@@ -49,7 +51,9 @@ def run_rt_data():
     ]
 
     classifier = NaiveBayesNLTKClassifier()
+    print('Training...')
     classifier.train(positive_feature_sets + negative_feature_sets)
+    print('Done!')
 
     tests = [
         'There is a cow chilling on the ceiling',
@@ -70,8 +74,7 @@ def run_rt_data():
     ]
 
     for feature_set in test_feature_sets:
-        print '{}: {}'.format(feature_set, classifier.classify({w:True for w in feature_set}))
-
+        print '{}: {}'.format(feature_set, classifier.classify(feature_set))
 
 if __name__ == '__main__':
     run_rt_data()

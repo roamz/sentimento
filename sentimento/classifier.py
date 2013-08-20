@@ -29,6 +29,6 @@ class NaiveBayesNLTKClassifier(object):
         )
         self.classifier.show_most_informative_features(20)
 
-    def classify(self, features):
-        return self.classifier.classify(features)
+    def classify(self, feature_set):
+        return self.classifier.classify({f:True for f in feature_set})
 
