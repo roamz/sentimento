@@ -5,5 +5,6 @@ POSITIVE_TEXT_FINDER = '|'.join([
 ])
 
 NEGATIVE_TEXT_FINDER = '|'.join([
-    '[=\:;]-?[\(\|\\]', 'fail', 'fuck[^ing] (up)?', 'shit', 'sucks', 'wrong', 'ruin'
+    '[=\:;]-?[\(\|\\]', 'fail', 'fuck[^ing] (up)?', 'shit', 'sucks', 
+    'wrong', 'ruin', 'screw'
 ])
