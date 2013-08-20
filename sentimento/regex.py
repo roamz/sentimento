@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
 
+''' Text finder regexps are tailored to automatically classify text
+using tags common in social networks.
+'''
+
 POSITIVE_TEXT_FINDER = '|'.join([
     '[=:;8xB]-?[\)D3]', '<3', 'amazing', 'w00t', 'fuckyea', 'shityea', 'lol'
 ])
