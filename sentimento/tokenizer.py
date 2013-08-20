@@ -19,7 +19,9 @@ stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
 negative_stopwords = ['not', 'no', 'isn\'t', 'isnt', 'dont', 'don\'t']
 
 punctuation_regex = re.compile(r'^[^\w]{1}$')
-words_splitter = re.compile(r"[\w'<>@#]+|[.,!?;]")
+
+# words_splitter = re.compile(r"[\w'<>@#]+|[.,!?;]")
+words_splitter = re.compile(r"[\w'#@]+|[3<>:-D\)\(\|\\]{2,3}")
 
 def tokenize(string):
     return [
