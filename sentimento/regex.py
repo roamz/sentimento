@@ -2,11 +2,11 @@
 import re
 
 POSITIVE_TEXT_FINDER = '|'.join([
-    '[=:;]-?[\)D3]', '<3', 'amazing', 'w00t', 'lol', 'rofl'
+    '[=:;8xB]-?[\)D3]', '<3', 'amazing', 'w00t', 'lol', 'rofl'
 ])
 
 NEGATIVE_TEXT_FINDER = '|'.join([
-    '[=:;]-?[\(\|\\\]', 'fail', 'fuck', 'shit', 'sucks', 
+    '[=:;8xB]-?[\(\|\\\]', 'fail', 'fuck', 'shit', 'sucks', 
     'wrong', 'ruin', 'screw'
 ])
 
