@@ -9,12 +9,14 @@ stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
     'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 
     'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 
     'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 
-    'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 
-    'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 
+    'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from',  
     'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 
     'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 
     'such', 'nor', 'only', 'own', 'same', 'so', 'than', 'too', 
     'very', 's', 't', 'can', 'will', 'just', 'should', 'now']
+
+doubtful_stopwords = ['up', 'down', 'in', 'out', 'on', 'off', 
+    'over', 'under', 'again']
 
 negative_stopwords = ['not', 'no', 'isn\'t', 'isnt', 'dont', 'don\'t']
 
