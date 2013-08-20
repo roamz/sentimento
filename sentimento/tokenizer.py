@@ -27,7 +27,7 @@ words_splitter = re.compile(r"[\w'#@]+|[3<>:-D\)\(\|\\]{2,3}")
 
 def tokenize(string):
     return [
-        t
+        t.lower()
         for t in words_splitter.findall(string.rstrip())
         if len(t) > 0
     ]
