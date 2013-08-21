@@ -19,9 +19,11 @@ class Classifier(object):
 
 
 class NaiveBayesNLTKClassifier(object):
-    def __init__(self):
+    def __init__(self, threshold=0.7, undecided_label='neutral'):
         super(NaiveBayesNLTKClassifier, self).__init__()
         self.classifier = None
+        self.threshold = threshold
+        self.undecided_label = undecided_label
 
     def train(self, feature_sets):
         self.classifier = nltk.classify.NaiveBayesClassifier.train(
@@ -30,5 +32,17 @@ class NaiveBayesNLTKClassifier(object):
         self.classifier.show_most_informative_features(20)
 
     def classify(self, feature_set):
-        return self.classifier.classify({f:True for f in feature_set})
+        classified = self.classifier.prob_classify({f:True for f in feature_set})
+        result = {tag:classified.prob(tag) for tag in classified.samples()}
+
+        decision = self.undecided_label
+        for tag, value in result.items():
+            if value >= self.threshold:
+                decision = tag
+
+        return {
+            'decision': decision,
+            'result': result
+        }
+        # return self.classifier.classify({f:True for f in feature_set})
 
