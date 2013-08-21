@@ -1,31 +1,18 @@
 # -*- coding: utf-8 -*-
-from . import tokenizer
+from . import classic_filter_chain
 from sentimento.classifier import NaiveBayesNLTKClassifier, \
     simple_nltk_feature_set_converter
+from .utils import apply_functions
 
 LABEL_POSITIVE = '+'
 LABEL_NEGATIVE = '-'
-
-def apply_functions(arg, functions):
-    return reduce(
-        (lambda a, f: f(a)), 
-        functions, 
-        arg
-    )
-
 
 def run_classic(positive_training_corpus, 
     negative_training_corpus, positive_test_corpus,
     negative_test_corpus):
 
-    filter_chain = (
-        tokenizer.tokenize,
-        tokenizer.filter_punctuation,
-        tokenizer.filter_stopwords,
-        tokenizer.filter_mentions,
-        tokenizer.tags_to_words,
-        tokenizer.join_negations
-    )
+    filter_chain = classic_filter_chain
+
     positive_filter_chain = filter_chain + (
         simple_nltk_feature_set_converter(LABEL_POSITIVE),
     )

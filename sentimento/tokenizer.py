@@ -82,3 +82,13 @@ def join_negations(tokens):
                 grouped_tokenized.append(w)
 
     return grouped_tokenized
+
+
+classic_filter_chain = (
+    tokenize,
+    filter_punctuation,
+    filter_stopwords,
+    filter_mentions,
+    tags_to_words,
+    join_negations
+)
