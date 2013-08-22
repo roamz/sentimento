@@ -23,3 +23,4 @@ Not necessarily read or used.
 * http://andybromberg.com/sentiment-analysis-python/?goback=%2Egde_115439_member_223217943#%21
 * http://text-processing.com/demo/sentiment/
 * https://developers.google.com/prediction/docs/sentiment_analysis
+* http://jrdh.co.uk/blog/?p=33
