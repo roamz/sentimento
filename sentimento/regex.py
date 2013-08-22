@@ -5,6 +5,14 @@ import re
 using tags common in social networks.
 '''
 
+POSITIVE_EMOJI_FINDER = '|'.join([
+    '[=:;8xB]-?[\)D3]', '<3'
+])
+
+NEGATIVE_EMOJI_FINDER = '|'.join([
+    '[=:;8xB]-?[\(\|\\\]'
+])
+
 POSITIVE_TEXT_FINDER = '|'.join([
     '[=:;8xB]-?[\)D3]', '<3', 'amazing', 'w00t', 'fuckyea', 'shityea', 'lol'
 ])

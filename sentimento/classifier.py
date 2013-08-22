@@ -37,7 +37,7 @@ class NaiveBayesNLTKClassifier(object):
         self.classifier = nltk.classify.NaiveBayesClassifier.train(
             feature_sets
         )
-        self.classifier.show_most_informative_features(20)
+        self.classifier.show_most_informative_features(100)
 
     def classify(self, feature_set):
         classified = self.classifier.prob_classify({f:True for f in feature_set})
