@@ -9,6 +9,14 @@ def simple_nltk_feature_set_converter(label):
         )
     return converter
 
+def contains_nltk_feature_set_converter(label):
+    def converter(tokens):
+        return (
+            {'contains({})'.format(t): True for t in tokens},
+            label
+        )
+    return converter
+
 
 class Classifier(object):
     def train(self, feature_sets):

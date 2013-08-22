@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from . import classic_filter_chain
+from .tokenizer import classic_filter_chain
 from sentimento.classifier import NaiveBayesNLTKClassifier, \
     simple_nltk_feature_set_converter
 from .utils import apply_functions
