@@ -38,9 +38,24 @@ def filter_lines(gen, regex):
     )
 
 def test_classic_lm():
+    train_pos = FileCorpusSource(data.LM_TRAIN_POSITIVE).entries()
+    train_neg = FileCorpusSource(data.LM_TRAIN_NEGATIVE).entries()
+
+    test_pos = FileCorpusSource(data.LM_TEST_POSITIVE).entries()
+    test_neg = FileCorpusSource(data.LM_TEST_NEGATIVE).entries()
+
+    run_classic(
+        train_pos, 
+        train_neg, 
+        test_pos, 
+        test_neg,
+        verbose=False
+    )
+
+
+def test_classic_lm_filtered():
     train_pos = filter_lines(FileCorpusSource(data.LM_TRAIN_POSITIVE).entries(), positive_emoji)
     train_neg = filter_lines(FileCorpusSource(data.LM_TRAIN_NEGATIVE).entries(), negative_emoji)
-
 
     test_pos = filter_lines(FileCorpusSource(data.LM_TEST_POSITIVE).entries(), positive_emoji)
     test_neg = filter_lines(FileCorpusSource(data.LM_TEST_NEGATIVE).entries(), negative_emoji)

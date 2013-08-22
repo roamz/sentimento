@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 from .tokenizer import classic_filter_chain
 from sentimento.classifier import NaiveBayesNLTKClassifier
-from sentimento.classifier import simple_nltk_feature_set_converter as feature_set_converter
+# from sentimento.classifier import simple_nltk_feature_set_converter as feature_set_converter
 # from sentimento.classifier import contains_nltk_feature_set_converter as feature_set_converter
+from sentimento.classifier import bigram_nltk_feature_set_converter as feature_set_converter
+# from sentimento.classifier import bigram_exclusive_nltk_feature_set_converter as feature_set_converter
+
+
 from .utils import apply_functions
 
 LABEL_POSITIVE = '+'

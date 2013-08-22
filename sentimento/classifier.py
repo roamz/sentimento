@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import nltk.classify
-
+import itertools
+from nltk.collocations import BigramCollocationFinder
+from nltk.metrics import BigramAssocMeasures
+ 
 def simple_nltk_feature_set_converter(label):
     def converter(tokens):
         return (
@@ -17,6 +20,40 @@ def contains_nltk_feature_set_converter(label):
         )
     return converter
 
+def bigram_nltk_feature_set_converter(label, score_fn=BigramAssocMeasures.chi_sq, n=200):
+    def converter(tokens):
+        bigram_finder = BigramCollocationFinder.from_words(tokens)
+        bigrams = bigram_finder.nbest(score_fn, n)
+        return (
+            {ngram: True for ngram in itertools.chain(tokens, bigrams)},
+            label
+        )
+    return converter
+
+def bigram_exclusive_nltk_feature_set_converter(label, score_fn=BigramAssocMeasures.chi_sq, n=200):
+    def converter(tokens):
+        bigram_finder = BigramCollocationFinder.from_words(tokens)
+        bigrams = bigram_finder.nbest(score_fn, n)
+
+        def is_in_bigrams(bigrams, string):
+            for bigram in bigrams:
+                if string in bigram:
+                    return True
+            return False
+
+        tokens_exclusive = [
+            t for t in tokens 
+            if not is_in_bigrams(bigrams, t)
+        ]
+
+        return (
+            {
+                ngram: True 
+                for ngram in itertools.chain(tokens_exclusive, bigrams) 
+            },
+            label
+        )
+    return converter
 
 class Classifier(object):
     def train(self, feature_sets):

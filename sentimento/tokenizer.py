@@ -90,5 +90,5 @@ classic_filter_chain = (
     filter_stopwords,
     filter_mentions,
     tags_to_words,
-    join_negations
+    # join_negations
 )
