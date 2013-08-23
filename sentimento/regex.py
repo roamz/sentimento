@@ -18,7 +18,8 @@ POSITIVE_TEXT_FINDER = '|'.join([
 ])
 
 NEGATIVE_TEXT_FINDER = '|'.join([
-    '[=:;8xB]-?[\(\|\\\]', 'fail', 'sucks', 'wrong', 'ruin', 'screw'
+    '[=:;8xB]-?[\(\|\\\]', 'fail', 'fuck[^yea]', 'shit[^yea]', 'sucks', 
+    'wrong', 'ruin', 'screw'
 ])
 
 if __name__ == '__main__':
@@ -26,5 +27,5 @@ if __name__ == '__main__':
         assert re.match(POSITIVE_TEXT_FINDER, t, re.IGNORECASE), '+ {}'.format(t)
 
 
-    for t in [':(', ':(((', 'screw you']:
+    for t in [':(', ':(((', 'SHIT', 'Fucked UP', 'screw you']:
         assert re.match(NEGATIVE_TEXT_FINDER, t, re.IGNORECASE), '- {}'.format(t)
