@@ -25,3 +25,4 @@ Not necessarily read or used.
 * https://developers.google.com/prediction/docs/sentiment_analysis
 * http://jrdh.co.uk/blog/?p=33
 * http://streamhacker.com/2010/05/24/text-classification-sentiment-analysis-stopwords-collocations/
+* http://www.aclweb.org/anthology-new/W/W13/W13-16.pdf#page=132
