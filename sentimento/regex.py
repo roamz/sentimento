@@ -14,12 +14,12 @@ NEGATIVE_EMOJI_FINDER = '|'.join([
 ])
 
 POSITIVE_TEXT_FINDER = '|'.join([
-    '[=:;8xB]-?[\)D3]', '<3', 'amazing', 'w00t', 'fuckyea', 'shityea', 'lol'
+    '[=:;8xB]-?[\)D3]', '<3', 'amazing', 'woot', 'w00t', 'fuckyea', 'shityea'
 ])
 
 NEGATIVE_TEXT_FINDER = '|'.join([
     '[=:;8xB]-?[\(\|\\\]', 'fail', 'fuck[^yea]', 'shit[^yea]', 'sucks', 
-    'wrong', 'ruin', 'screw'
+    'wrong', 'ruin', 'screw', 'terrible'
 ])
 
 if __name__ == '__main__':
